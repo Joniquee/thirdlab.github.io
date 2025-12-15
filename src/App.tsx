@@ -1,24 +1,32 @@
 import { NavLink, Routes, Route } from "react-router-dom";
+import mainImage from './assets/react.svg';
 import Cats from "./pages/Cats";
 import Crypto from "./pages/Crypto";
 import News from "./pages/News";
-import './styles.css'
 
 export default function App() {
   return (
     <>
       <nav>
-	<NavLink to="/thirdlab.github.io">Главная</NavLink>
-        <NavLink to="/thirdlab.github.io/news">Новости</NavLink>
-        <NavLink to="/thirdlab.github.io/cats">Коты</NavLink>
-        <NavLink to="/thirdlab.github.io/crypto">Крипта</NavLink>
+        <NavLink to="/">Главная</NavLink>
+        <NavLink to="/news">Новости</NavLink>
+        <NavLink to="/cats">Коты</NavLink>
+        <NavLink to="/crypto">Крипта</NavLink>
       </nav>
 
       <Routes>
-        <Route path="/thirdlab.github.io/news" element={<News />} />
-        <Route path="/thirdlab.github.io/cats" element={<Cats />} />
-        <Route path="/thirdlab.github.io/crypto" element={<Crypto />} />
+        <Route path="/" element={<div style={{ textAlign: 'center', padding: '2rem' }}>
+      <img
+        src={mainImage}
+        alt="Главная"
+        style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+      />
+    </div>} />
+        <Route path="/news" element={<News />} />
+        <Route path="/cats" element={<Cats />} />
+        <Route path="/crypto" element={<Crypto />} />
       </Routes>
     </>
   );
 }
+
